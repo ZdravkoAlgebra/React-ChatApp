@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Messages from "./components/Messages/Messages";
 import Input from "./components/Input/Input";
-import { data } from "./utils/style/data"
+import { randomColor, randomName }  from "./utils/style/data"
 
 
 class App extends Component {
@@ -39,7 +39,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <h1>My Chat App</h1>
+          <h1>Chat App</h1>
         </div>
         <Messages
           messages={this.state.messages}
