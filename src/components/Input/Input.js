@@ -1,38 +1,37 @@
-import {Component} from "react";
-import React from "react";
+import { useState, useEffect } from 'react';
 
+function Input(props) {
+  const [text, setText] = useState("");
 
-class Input extends Component {
-  state = {
-    text: ""
+  useEffect(() => {
+    const input = document.querySelector('input');
+    input.focus();
+  }, []);
+
+  function handleChange(e) {
+    setText(e.target.value);
   }
 
-  onChange(e) {
-    this.setState({text: e.target.value});
-  }
-
-  onSubmit(e) {
+  function handleSubmit(e) {
     e.preventDefault();
-    this.setState({text: ""});
-    this.props.onSendMessage(this.state.text);
+    props.onSendMessage(text);
+    setText("");
   }
 
-  render() {
-    return (
-      <div className="Input">
-        <form onSubmit={e => this.onSubmit(e)}>
-          <input
-            onChange={e => this.onChange(e)}
-            value={this.state.text}
-            type="text"
-            placeholder="Enter your message and press ENTER"
-            autofocus="true"
-          />
-          <button>Send</button>
-        </form>
-      </div>
-    );
-  }
+  return (
+    <div className="Input">
+      <form onSubmit={handleSubmit}>
+        <input
+          onChange={handleChange}
+          value={text}
+          type="text"
+          placeholder="Enter your message and press ENTER"
+          autoFocus
+        />
+        <button>Send</button>
+      </form>
+    </div>
+  );
 }
 
 
