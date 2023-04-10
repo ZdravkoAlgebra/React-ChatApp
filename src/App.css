@@ -20,7 +20,7 @@
   overflow: visible;
   width: 100%;
   text-align: center;
-  color: white;
+  color: rgb(9, 8, 8);
 }
 
 .Messages-list {
@@ -40,7 +40,6 @@
 }
 
 .Messages-message.currentMember {
-  /*justify-content: flex-end;*/
   flex-direction: row-reverse;
   text-align: right;
 }
