@@ -3,6 +3,7 @@ import './App.css';
 import Messages from "./components/Messages/Messages";
 import Input from "./components/Input/Input";
 import { randomColor, randomName } from "./utils/style/data";
+import { Home,Header } from './utils/style/defaultStyles';
 
 function App() {
   const [messages, setMessages] = useState([]);
@@ -10,48 +11,43 @@ function App() {
     username: randomName(),
     color: randomColor(),
   });
-
+  const [drone, setDrone] = useState(null);
   useEffect(() => {
-    const drone = new window.Scaledrone("bw5oDrecQj3augNm", {
+    const drone = new window.Scaledrone("7IJPlwfF3zL37kgK", {
       data: member
     });
-
+    setDrone(drone);
     drone.on('open', error => {
       if (error) {
         return console.error(error);
       }
-
+      else {
+        console.log("connected to scaledrone" );
+      }
       const updatedMember = {...member};
       updatedMember.id = drone.clientId;
       setMember(updatedMember);
+      console.log(updatedMember);
     });
-
     const room = drone.subscribe("observable-room");
-
     room.on('data', (data, member) => {
       setMessages(prevMessages => [...prevMessages, {member, text: data}]);
     });
-
-
-    return () => {
-      drone.close();
-    };
-  }, [member]);
-
+  
+  }, [member,drone]);
   const onSendMessage = (message) => {
-    const drone = new window.Scaledrone("bw5oDrecQj3augNm");
+    const drone = new window.Scaledrone("7IJPlwfF3zL37kgK");
     drone.publish({
       room: "observable-room",
-      message,
-      member
+      text: message,
+      member,
     });
   };
-
   return (
-    <div className="App">
-      <div className="App-header">
+    <Home>
+      <Header>
         <h1>My Chat App</h1>
-      </div>
+        </Header>
       <Messages
         messages={messages}
         currentMember={member}
@@ -59,7 +55,7 @@ function App() {
       <Input
         onSendMessage={onSendMessage}
       />
-    </div>
+    </Home>
   );
 }
 

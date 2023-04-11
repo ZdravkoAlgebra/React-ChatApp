@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import { Button, InputText, Form  } from '../../utils/style/defaultStyles';
+
 
 
 function Input(props) {
@@ -21,16 +23,16 @@ function Input(props) {
 
   return (
     <div className="Input">
-      <form onSubmit={handleSubmit}>
-        <input
+      <Form onSubmit={handleSubmit}>
+        <InputText
           onChange={handleChange}
           value={text}
           type="text"
           placeholder="Enter your message and press ENTER"
           autoFocus
         />
-        <button>Send</button>
-      </form>
+        <Button>Send</Button>
+      </Form>
     </div>
   );
 }
