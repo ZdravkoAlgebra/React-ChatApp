@@ -17,8 +17,8 @@ function Input(props) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    props.onSendMessage(text);
     setText("");
+    props.onSendMessage(text);
   }
 
   return (
