@@ -1,13 +1,15 @@
 import styled from "styled-components";
+import theme from "../style/theme"
 
 export const Button = styled.button`
   padding: 15px 40px;
   font-size: 16px;
-  background-color: orangered;
+  background-color: black;
   color: white;
   border: none;
   border-radius: 8px;
   margin-left: 20px;
+  font-family: 'Prompt', sans-serif;
 `
 
 export const Home = styled.div`
@@ -15,16 +17,19 @@ export const Home = styled.div`
   flex-direction: column;
   justify-content: space-between;
   height: 100vh;
-  background: url(https://preview.redd.it/v41wn7nbe7m61.jpg?auto=webp&s=35bc8b0ef822bc8dfe2cc2b699c68b69c1d66900) center;
+  background: url(https://static.videezy.com/system/resources/thumbnails/000/051/533/original/Hitech-Digital-Background.jpg);
 `;
 
 export const Header = styled.div`
-  background-color: #d79595;
   padding: 25px;
   overflow: visible;
   width: 100%;
   text-align: center;
-  color: rgb(9, 8, 8);
+  background: linear-gradient( 135deg, #000000fe 10%, #ffffffca 100%);
+  border-radius: 0% 0 20% 20%;
+  color: white;
+  font-family: 'Prompt', sans-serif;
+  font-weight: 400;
 `;
 
 export const Form = styled.form`
@@ -39,7 +44,7 @@ export const InputText = styled.input`
   padding: 15px;
   font-size: 16px;
   border-radius: 8px;
-  border: 1px solid orangered;
+  border: 1px solid black;
   flex-grow: 1;
 `;
 

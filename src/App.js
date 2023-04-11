@@ -61,7 +61,8 @@ function App() {
         droneEvents();
       }
     }, [drone, member,room,messages]);
-  const onSendMessage = (message) => {
+  
+    const onSendMessage = (message) => {
     drone.publish({
       room: "observable-room",
       text: message,
