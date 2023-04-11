@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Button, InputText, Form  } from '../../utils/style/defaultStyles';
+import { Button, InputText, Form, InputWrapper } from '../../utils/style/defaultStyles';
 
 
 
@@ -22,7 +22,7 @@ function Input(props) {
   }
 
   return (
-    <div className="Input">
+    <InputWrapper>
       <Form onSubmit={handleSubmit}>
         <InputText
           onChange={handleChange}
@@ -33,7 +33,7 @@ function Input(props) {
         />
         <Button>Send</Button>
       </Form>
-    </div>
+    </InputWrapper>
   );
 }
 

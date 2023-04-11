@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { MessagesList } from '../../utils/style/defaultStyles';
 
 
 function Messages(props) {
@@ -27,9 +28,9 @@ function Messages(props) {
   }
 
   return (
-    <ul className="Messages-list">
+    <MessagesList>
       {messages.map(m => renderMessage(m))}
-    </ul>
+    </MessagesList>
   );
 }
 

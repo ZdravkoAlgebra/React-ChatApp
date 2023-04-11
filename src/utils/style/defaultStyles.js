@@ -44,5 +44,16 @@ export const InputText = styled.input`
 `;
 
 
-export const Input = styled.div`
+export const InputWrapper = styled.div`
+`;
+
+export const MessagesList = styled.ul`
+  padding: 20px 0;
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  list-style: none;
+  padding-left: 0;
+  flex-grow: 1;
+  overflow: auto;
 `;

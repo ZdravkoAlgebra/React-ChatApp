@@ -12,37 +12,63 @@ function App() {
     color: randomColor(),
   });
   const [drone, setDrone] = useState(null);
+  const [room, setRoom] = useState(false);
   useEffect(() => {
     const drone = new window.Scaledrone("7IJPlwfF3zL37kgK", {
       data: member
     });
     setDrone(drone);
-    drone.on('open', error => {
-      if (error) {
-        return console.error(error);
+  }, [member]);
+  useEffect(() => {
+    // DEFAULT SCALEDRONE ACTIONS
+      const droneEvents = () => {
+        drone.on("open", (error) => {
+          if (error) {
+            return console.error(error);
+          }
+          roomEvents();
+        });
+        drone.on("error", (error) => console.error(error));
+        drone.on("disconnect", () => {
+          console.log(
+            "Disconnected, Scaledrone reconnect"
+          );
+        });
+        drone.on("reconnect", () => {
+          console.log("Reconnected");
+        });
+      };
+      // SCALEDRONE HAS ROOMS WHICH HAVE SOME ACTIONS
+      const roomEvents = () => {
+        const room = drone.subscribe(`observable-room`);
+        room.on("open", (error) => {
+          if (error) {
+            console.error(error);
+          } else {
+            console.log("InDa room");
+            setRoom(true);
+          }
+        });
+        room.on("message", (message) => {
+          receiveMsg(message);
+        });
+      };
+      // RECEIVING MESSAGES FROM SCALEDRONE
+      const receiveMsg = (message) => {
+        setMessages(messages =>[...messages,message]);
+      };
+      if (drone && !member.username) {
+        droneEvents();
       }
-      else {
-        console.log("connected to scaledrone" );
-      }
-      const updatedMember = {...member};
-      updatedMember.id = drone.clientId;
-      setMember(updatedMember);
-      console.log(updatedMember);
-    });
-    const room = drone.subscribe("observable-room");
-    room.on('data', (data, member) => {
-      setMessages(prevMessages => [...prevMessages, {member, text: data}]);
-    });
-  
-  }, [member,drone]);
+    }, [drone, member,room,messages]);
   const onSendMessage = (message) => {
-    const drone = new window.Scaledrone("7IJPlwfF3zL37kgK");
     drone.publish({
       room: "observable-room",
       text: message,
       member,
     });
   };
+  
   return (
     <Home>
       <Header>
