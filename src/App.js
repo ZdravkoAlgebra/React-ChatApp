@@ -15,7 +15,7 @@ function App() {
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
-    console.log("useEffect for member triggered");
+    console.log("useEffect");
     const drone = new window.Scaledrone("7IJPlwfF3zL37kgK", {
       data: member
     });
@@ -23,7 +23,7 @@ function App() {
   }, [member]);
 
   useEffect(() => {
-    console.log("useEffect for member triggered");
+    console.log("useEffect ");
     // DEFAULT SCALEDRONE ACTIONS
     const droneEvents = () => {
       drone.on("open", (error) => {
