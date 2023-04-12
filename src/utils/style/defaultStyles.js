@@ -5,7 +5,7 @@ export const GlobalStyles = styled.div`
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    }
+  }
 `;
 
 export const AppWrapper = styled.div`
@@ -42,11 +42,11 @@ export const MessagesMessage = styled.li`
   display: flex;
   margin-top: 10px;
 
-  &.currentMember {
+  &.messageFromMe {
     flex-direction: row-reverse;
     text-align: right;
 
-    > .Message-content {
+    > .MessageContent {
       align-items: flex-end;
       .text {
         background-color: orangered;

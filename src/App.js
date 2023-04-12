@@ -6,12 +6,13 @@ import { randomColor, randomName } from "./utils/style/data";
 import { AppHeader, AppWrapper,GlobalStyles } from './utils/style/defaultStyles';
 
 function App() {
-  const [messages, setMessages] = useState([]);
   const [member, setMember] = useState({
     username: randomName(),
     color: randomColor(),
   });
   const [drone, setDrone] = useState(null);
+
+  const [messages, setMessages] = useState([]);
 
   useEffect(() => {
     console.log("useEffect pozvan");
