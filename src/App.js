@@ -3,7 +3,7 @@ import './App.css';
 import Messages from "./components/Messages/Messages";
 import Input from "./components/Input/Input";
 import { randomColor, randomName } from "./utils/style/data";
-import { Home,Header } from './utils/style/defaultStyles';
+import { AppHeader, AppWrapper,GlobalStyles } from './utils/style/defaultStyles';
 
 function App() {
   const [messages, setMessages] = useState([]);
@@ -48,7 +48,7 @@ function App() {
         if (error) {
           console.error(error);
         } else {
-          console.log("InDa room");
+          console.log("Im here in room");
         }
       });
       room.on("message", (message) => {
@@ -77,10 +77,12 @@ function App() {
   };
 
   return (
-    <Home>
-      <Header>
+    <>
+    <GlobalStyles />
+    <AppWrapper>
+      <AppHeader>
         <h1>My Chat App</h1>
-      </Header>
+      </AppHeader>
       <Messages
         messages={messages}
         currentMember={member}
@@ -88,7 +90,8 @@ function App() {
       <Input
         onSendMessage={onSendMessage}
       />
-    </Home>
+    </AppWrapper>
+    </>
   );
 }
 

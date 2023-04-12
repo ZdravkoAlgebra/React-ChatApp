@@ -18,7 +18,7 @@ function Messages(props) {
     return (
       <li key={message.id} className={className}>
         <span className="avatar" style={{ backgroundColor: member.clientData.color }} />
-        <div className="Message-content">
+        <div className="MessageContent">
           <div className="username">{member.clientData.username}</div>
           <div className="text">{text}</div>
         </div>
