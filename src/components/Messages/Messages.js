@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { MessagesList } from '../../utils/style/defaultStyles';
 
-
 function Messages(props) {
   const [currentMember, setCurrentMember] = useState({});
   const [messages, setMessages] = useState([]);
@@ -17,7 +16,7 @@ function Messages(props) {
     const className = messageFromMe ? "Messages-message messageFromMe" : "Messages-message";
   
     return (
-      <li className={className}>
+      <li key={message.id} className={className}>
         <span className="avatar" style={{ backgroundColor: member.clientData.color }} />
         <div className="Message-content">
           <div className="username">{member.clientData.username}</div>

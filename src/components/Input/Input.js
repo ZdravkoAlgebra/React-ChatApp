@@ -1,15 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Button, InputText, Form, InputWrapper } from '../../utils/style/defaultStyles';
-
-
 
 function Input(props) {
   const [text, setText] = useState("");
-
-  useEffect(() => {
-    const input = document.querySelector('input');
-    input.focus();
-  }, []);
 
   function handleChange(e) {
     setText(e.target.value);
@@ -17,8 +10,8 @@ function Input(props) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    setText("");
     props.onSendMessage(text);
+    setText("");
   }
 
   return (
@@ -36,7 +29,5 @@ function Input(props) {
     </InputWrapper>
   );
 }
-
-
 
 export default Input;

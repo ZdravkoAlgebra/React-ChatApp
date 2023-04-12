@@ -4,13 +4,13 @@
   padding: 0;
 }
 
-
 .Messages-message {
   display: flex;
   margin-top: 10px;
 }
 
 .Messages-message.currentMember {
+
   flex-direction: row-reverse;
   text-align: right;
 }
