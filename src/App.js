@@ -15,7 +15,7 @@ function App() {
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
-    console.log("useEffect pozvan");
+    console.log("useEffect for member triggered");
     const drone = new window.Scaledrone("7IJPlwfF3zL37kgK", {
       data: member
     });
@@ -23,6 +23,7 @@ function App() {
   }, [member]);
 
   useEffect(() => {
+    console.log("useEffect for member triggered");
     // DEFAULT SCALEDRONE ACTIONS
     const droneEvents = () => {
       drone.on("open", (error) => {
@@ -59,6 +60,7 @@ function App() {
 
     // RECEIVING MESSAGES FROM SCALEDRONE
     const receiveMsg = (message) => {
+      console.log("Received message:", message);
       setMessages(messages =>[...messages,message]);
     };
 
@@ -68,6 +70,7 @@ function App() {
   }, [drone, member]);
 
   const onSendMessage = (message) => {
+    console.log("Sending message:", message);
     if (drone && drone.id) {
       drone.publish({
         room: "observable-room",
