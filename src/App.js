@@ -7,6 +7,7 @@ import {
   AppHeader,
   AppWrapper,
   GlobalStyles,
+  HeaderTitle,
 } from "./utils/style/defaultStyles";
 
 
@@ -68,7 +69,7 @@ function App() {
       <GlobalStyles />
       <AppWrapper>
         <AppHeader>
-          <h1>Scaledrone Chat App</h1>
+          <HeaderTitle>Scaledrone Chat App</HeaderTitle>
         </AppHeader>
         <Messages messages={messages} currentMember={member} />
         <Input onSendMessage={onSendMessage} />
