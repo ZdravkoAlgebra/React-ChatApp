@@ -119,6 +119,7 @@ export const MessageContent = styled.div`
     background-color: black;
     color: white;
     display: inline-block;
+    overflow-wrap: break-word;
   }
 
   > .timestamp {

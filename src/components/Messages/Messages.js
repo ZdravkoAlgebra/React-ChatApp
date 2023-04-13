@@ -4,8 +4,15 @@ import {
   MessagesMessage,
   MessageContent,
 } from "../../utils/style/defaultStyles";
+import { useRef, useEffect } from "react";
 
 const Messages = ({ messages, currentMember }) => {
+  const messagesEnd = useRef(null);
+
+  useEffect(() => {
+    messagesEnd.current.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
+  
   return (
     <MessagesList>
       {messages.map((message, index) => {
@@ -23,6 +30,7 @@ const Messages = ({ messages, currentMember }) => {
           </MessagesMessage>
         );
       })}
+      <div ref={messagesEnd} />
     </MessagesList>
   );
 };
