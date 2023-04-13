@@ -58,6 +58,7 @@ export const MessageForm = styled(Form)`
   justify-content: space-between;
   max-width: 900px;
   margin: 0 auto 40px;
+  margin-top: 10px;
 `;
 
 export const MessagesList = styled.ul`
