@@ -62,7 +62,7 @@ function App() {
       room: "observable-room",
       message: message,
     });
-    console.log(messages);
+    
   };
   return (
     <>

@@ -11,11 +11,15 @@ const Messages = ({ messages, currentMember }) => {
       {messages.map((message, index) => {
         const isFromCurrentMember = message.member.id === currentMember.id;
         const className = isFromCurrentMember ? "messageFromMe" : "messageFromThem";
+        
+        console.log(message.member.id);
+        console.log(currentMember.id);
+        
         return (
           <MessagesMessage key={index} className={className}>
             <MessageContent className="MessageContent">
-              <span className="username">{message.member.clientData.username}</span>
-              <span className="text">{message.text}</span>
+            <p className={className}>{message.member.clientData.username}</p>
+              <p className="text">{message.text}</p>
             </MessageContent>
           </MessagesMessage>
         );
