@@ -1,33 +1,30 @@
-import { useState } from 'react';
-import { Button, InputText, Form, MessageContent } from '../../utils/style/defaultStyles';
+import React from "react";
+import { Formik, Form } from "formik";
+import { Button, InputText } from "../../utils/style/defaultStyles";
 
-function Input(props) {
-  const [text, setText] = useState("");
-
-  function handleChange(e) {
-    setText(e.target.value);
-  }
-
-  function handleSubmit(e) {
-    e.preventDefault();
-    props.onSendMessage(text);
-    setText("");
-  }
-
+const Input = ({ onSendMessage }) => {
   return (
-    <MessageContent>
-      <Form onSubmit={handleSubmit}>
-        <InputText
-          onChange={handleChange}
-          value={text}
-          type="text"
-          placeholder="Enter your message and press ENTER"
-          autoFocus
-        />
-        <Button>Send</Button>
-      </Form>
-    </MessageContent>
+    <Formik
+      initialValues={{ message: '' }}
+      onSubmit={(values, actions) => {
+        onSendMessage(values.message);
+        actions.resetForm();
+      }}
+    >
+      {({ values, handleChange }) => (
+        <Form>
+          <InputText
+            type="text"
+            name="message"
+            placeholder="Enter your message here"
+            value={values.message}
+            onChange={handleChange}
+          />
+          <Button type="submit">Send</Button>
+        </Form>
+      )}
+    </Formik>
   );
-}
+};
 
 export default Input;

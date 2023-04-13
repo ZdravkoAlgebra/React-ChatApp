@@ -1,38 +1,27 @@
-import { useState, useEffect } from 'react';
-import { MessagesList } from '../../utils/style/defaultStyles';
+import React from "react";
+import {
+  MessagesList,
+  MessagesMessage,
+  MessageContent,
+} from "../../utils/style/defaultStyles";
 
-function Messages(props) {
-  console.log("messages props:", props.messages);
-  console.log("current member props:", props.currentMember);
-  const [currentMember, setCurrentMember] = useState({});
-  const [messages, setMessages] = useState([]);
-
-  useEffect(() => {
-    setCurrentMember(props.currentMember);
-    setMessages(props.messages);
-  }, [props.currentMember, props.messages]);
-
-  function renderMessage(message, index) {
-    const { member, text } = message;
-    const messageFromMe = member.id === currentMember.id;
-    const className = messageFromMe ? "Messages-message messageFromMe" : "Messages-message";
-  
-    return (
-      <li key={index} className={className}>
-        <span className="avatar" style={{ backgroundColor: member.clientData.color }} />
-        <div className="MessageContent">
-          <div className="username">{member.clientData.username}</div>
-          <div className="text">{text}</div>
-        </div>
-      </li>
-    );
-  }
-  
+const Messages = ({ messages, currentMember }) => {
   return (
     <MessagesList>
-      {messages.map(m => renderMessage(m))}
+      {messages.map((message, index) => {
+        const isFromCurrentMember = message.member.id === currentMember.id;
+        const className = isFromCurrentMember ? "messageFromMe" : "messageFromThem";
+        return (
+          <MessagesMessage key={index} className={className}>
+            <MessageContent className="MessageContent">
+              <span className="username">{message.member.username}</span>
+              <span className="text">{message.text}</span>
+            </MessageContent>
+          </MessagesMessage>
+        );
+      })}
     </MessagesList>
   );
-}
+};
 
 export default Messages;
