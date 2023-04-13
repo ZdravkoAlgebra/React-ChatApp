@@ -30,7 +30,7 @@ export const AppHeader = styled.div`
 `;
 
 export const MessagesList = styled.ul`
-  padding: 20px 0;
+  padding: 20px 15px;
   max-width: 900px;
   width: 100%;
   margin: 0 auto;
