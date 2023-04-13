@@ -18,15 +18,13 @@ export const AppWrapper = styled.div`
 `;
 
 export const AppHeader = styled.div`
-  background-image: linear-gradient( 135deg, #000000fe 10%, #ffffffca 100%);
-  border-radius: 0 0 20% 20%;
   overflow: hidden;
   width: 100%;
   text-align: center;
-  color: rgb(9, 8, 8);
   font-family: 'Prompt', sans-serif;
-  color: white;
+  color: black;
   flex-shrink: 0;
+  background: transparent;
 `;
 
 export const MessagesList = styled.ul`

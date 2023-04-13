@@ -68,7 +68,7 @@ function App() {
       <GlobalStyles />
       <AppWrapper>
         <AppHeader>
-          <h1>My Chat App</h1>
+          <h1>Scaledrone Chat App</h1>
         </AppHeader>
         <Messages messages={messages} currentMember={member} />
         <Input onSendMessage={onSendMessage} />
