@@ -14,7 +14,7 @@ const Messages = ({ messages, currentMember }) => {
         return (
           <MessagesMessage key={index} className={className}>
             <MessageContent className="MessageContent">
-              <span className="username">{message.member.username}</span>
+              <span className="username">{message.member.clientData.username}</span>
               <span className="text">{message.text}</span>
             </MessageContent>
           </MessagesMessage>
