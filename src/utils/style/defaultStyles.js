@@ -51,7 +51,7 @@ export const MessagesMessage = styled.li`
     > .MessageContent {
       align-items: flex-end;
       .text {
-        background-color: orangered;
+        background-color: green;
       }
     }
   }
@@ -72,9 +72,14 @@ export const MessageContent = styled.div`
     max-width: 400px;
     margin: 0;
     border-radius: 12px;
-    background-color: cornflowerblue;
+    background-color: black;
     color: white;
     display: inline-block;
+  }
+
+  > .timestamp {
+    font-size: 4px;
+    padding-top: 5px;
   }
 `;
 
