@@ -48,6 +48,7 @@ export const HeaderTitle = styled.h1`
     display: inline-block;
     margin: 10px;
     padding: 10px;
+    letter-spacing: 1px;
 `;
 
 // Message Form,Messages and users
