@@ -69,6 +69,18 @@ export const MessagesList = styled.ul`
   padding-left: 0;
   flex-grow: 1;
   overflow: auto;
+
+  /* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: black;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: white;
+}
 `;
 
 export const MessagesMessage = styled.li`
