@@ -25,6 +25,7 @@ export const AppHeader = styled.div`
   color: rgb(9, 8, 8);
   font-family: 'Prompt', sans-serif;
   color: white;
+  flex-shrink: 0;
 `;
 
 export const MessagesList = styled.ul`
