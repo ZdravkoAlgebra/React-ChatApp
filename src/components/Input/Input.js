@@ -20,7 +20,7 @@ const Input = ({ onSendMessage }) => {
             value={values.message}
             onChange={handleChange}
           />
-          <Button type="submit">Send</Button>
+          <Button>Send</Button>
           </MessageForm>
       )}
     </Formik>

@@ -17,13 +17,13 @@ const Messages = ({ messages, currentMember }) => {
     <MessagesList>
       {messages.map((message, index) => {
         const isFromCurrentMember = message.member.id === currentMember.id;
-        const className = isFromCurrentMember ? "messageFromMe" : "messageFromThem";
+        const username = isFromCurrentMember ? "messageFromMe" : "messageFromThem";
         const timestamp = new Date().toLocaleTimeString();
         
         return (
-          <MessagesMessage key={index} className={className}>
+          <MessagesMessage key={index} className={username}>
             <MessageContent className="MessageContent">
-            <p className={className}>{message.member.clientData.username}</p>
+              <p className={username}>{message.member.clientData.username}</p>
               <p className="text">{message.text}</p>
               <p className="timestamp">Sent at: {timestamp}</p>
             </MessageContent>

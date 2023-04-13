@@ -19,12 +19,14 @@ function App() {
   const [drone, setDrone] = useState(null);
   const [messages, setMessages] = useState([]);
   const [isDroneSet, setIsDroneSet] = useState(false);
+  
   useEffect(() => {
     const drone = new window.Scaledrone("7IJPlwfF3zL37kgK", {
       data: member,
     });
     setDrone(drone);
   }, []);
+  
   useEffect(() => {
     if (drone) {
       drone.on("open", error => {
@@ -43,6 +45,7 @@ function App() {
       setIsDroneSet(true);
     }
   }, [drone]);
+  
   useEffect(() => {
     if (drone) {
       const room = drone.subscribe(`observable-room`);
@@ -64,6 +67,8 @@ function App() {
       message: message,
     });
   };
+  
+  
   return (
     <>
       <GlobalStyles />
