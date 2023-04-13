@@ -1,5 +1,8 @@
 import React from "react";
-import { Formik, Form } from "formik";
+import { Formik, 
+         Form as MessageForm,
+         Field as InputText, 
+        } from "formik";
 import { Button, InputText, MessageForm } from "../../utils/style/defaultStyles";
 
 const Input = ({ onSendMessage }) => {
@@ -13,8 +16,7 @@ const Input = ({ onSendMessage }) => {
     >
       {({ values, handleChange }) => (
         <Form>
-          <MessageForm>
-          <InputText
+         <Field
             type="text"
             name="message"
             placeholder="Enter your message here"
@@ -22,8 +24,7 @@ const Input = ({ onSendMessage }) => {
             onChange={handleChange}
           />
           <Button type="submit">Send</Button>
-          </MessageForm>
-        </Form>
+          </Form>
       )}
     </Formik>
   );
