@@ -1,3 +1,4 @@
+import { Field, Form } from 'formik';
 import styled from 'styled-components';
 
 export const GlobalStyles = styled.div`
@@ -77,7 +78,7 @@ export const MessageContent = styled.div`
   }
 `;
 
-export const MessageForm = styled.div`
+export const MessageForm = styled(Form)`
   display: flex;
   width: 100%;
   justify-content: space-between;
@@ -85,7 +86,7 @@ export const MessageForm = styled.div`
   margin: 0 auto 40px;
 `;
 
-export const InputText = styled.input`
+export const InputText = styled(Field)`
   padding: 15px;
   font-size: 16px;
   border-radius: 8px;
