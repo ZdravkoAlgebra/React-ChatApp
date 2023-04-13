@@ -76,7 +76,7 @@ export const MessageContent = styled.div`
   }
 `;
 
-export const Form = styled.form`
+export const MessageForm = styled.div`
   display: flex;
   width: 100%;
   justify-content: space-between;
