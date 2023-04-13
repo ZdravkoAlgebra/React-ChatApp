@@ -94,14 +94,6 @@ export const MessagesMessage = styled.li`
 
     > .MessageContent {
       align-items: flex-end;
-
-      .username {
-    display: block;
-    color: rgb(0, 0, 0);
-    font-size: 14px;
-    padding-bottom: 4px;
-    border: 2px solid black;
-  }
       .text {
         background-color: green;
       }
