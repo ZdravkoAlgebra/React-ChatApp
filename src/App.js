@@ -8,6 +8,8 @@ import {
   AppWrapper,
   GlobalStyles,
 } from "./utils/style/defaultStyles";
+
+
 function App() {
   const [member, setMember] = useState({
     username: randomName(),
